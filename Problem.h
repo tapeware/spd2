@@ -21,10 +21,12 @@
 class Problem
 {
     std::vector<Task> to_do_list;
+    unsigned int num_of_machines;
 
 public:
     explicit Problem(const std::string& file_path);
-    explicit Problem(const std::vector<Task>& tasks) {to_do_list = tasks;}
+    explicit Problem(const std::vector<Task>& tasks, unsigned int num_of_machines)
+            : num_of_machines(num_of_machines), to_do_list(tasks) {}
     Problem() = default;
 
     std::vector<Task> get_tasks() const {return to_do_list;}

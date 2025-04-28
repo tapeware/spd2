@@ -6,10 +6,11 @@
 
 #include "Problem.h"
 
-Solution::Solution(const std::vector<Task>& solution_list) : solution_list(solution_list)
+Solution::Solution(const std::vector<Task>& solution_list, unsigned int num_of_machines)
+        : solution_list(solution_list), num_of_machines(num_of_machines)
 {
-    Problem p(solution_list);
-    c_max = p.simulate(true);
+    Problem p(solution_list, num_of_machines);
+    c_max = p.simulate();
 }
 
 

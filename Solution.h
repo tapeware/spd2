@@ -15,10 +15,11 @@
 
 class Solution {
   std::vector<Task> solution_list;
+  unsigned int num_of_machines;
   unsigned int c_max;
 
 public:
-  explicit Solution(const std::vector<Task> &solution_list);
+  Solution(const std::vector<Task> &solution_list, unsigned int num_of_machines);
 
   unsigned int get_c_max() const {return c_max;}
   std::vector<Task> get_tasks() const {return solution_list;}
