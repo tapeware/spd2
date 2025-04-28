@@ -71,7 +71,7 @@ int Solution::get_b() const
     return -1;
 }
 
-int Solution::get_a() const
+int Solution::get_a()
 {
     if (!has_vector) return -1;
 
@@ -88,7 +88,7 @@ int Solution::get_a() const
     return -1;
 }
 
-int Solution::get_c() const
+int Solution::get_c()
 {
     if (!has_vector) return -1;
 
