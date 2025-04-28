@@ -34,29 +34,22 @@ std::ostream& operator<<(std::ostream& os, const Problem& p)
     unsigned int task_count = p.get_task_count();
 
     formatted_string << "Total tasks: " << task_count << "\n";
-    for (unsigned int i=0; i<task_count; i++)
-    {
-        tmp = p.get_task_by_index(i);
-        formatted_string << i+1 << ") pj=" << tmp.get_pj()
-                                << ", rj=" << tmp.get_rj()
-                                << ", qj=" << tmp.get_qj()
-                                << "\n";
-
-    }
+    // for (unsigned int i=0; i<task_count; i++)
+    // {
+    //     tmp = p.get_task_by_index(i);
+    //     formatted_string << i+1 << ") pj=" << tmp.get_pj()
+    //                             << ", rj=" << tmp.get_rj()
+    //                             << ", qj=" << tmp.get_qj()
+    //                             << "\n";
+    //
+    // }
 
     os << formatted_string.str();
     return os;
 }
 
-void Problem::rearrange(const Range& new_order)
-{
-    const std::vector<Task> old_one=get_tasks();
-    std::vector<Task> new_one;
-    for (unsigned int index : new_order) new_one.push_back(old_one[index]);
-    to_do_list = new_one;
-}
 
-unsigned int Problem::simulate(bool with_cooldowns) const
+unsigned int Problem::simulate() const
 {
     unsigned int time=0, max_time=0;
     std::vector<unsigned int> c_pi, cq_pi;
@@ -64,29 +57,29 @@ unsigned int Problem::simulate(bool with_cooldowns) const
     for(unsigned int i=0; i<get_task_count(); i++)
     {
 
-        //obliczenie c_pi dla pierwszego zadania
-        if (i==0) c_pi.push_back(to_do_list[i].get_rj() + to_do_list[i].get_pj());
-        else
-        {
-            //std::cout << "max(" << to_do_list[i].get_rj() << ", " << c_pi[i-1] << ") + "
-            //<< to_do_list[i].get_pj() << " + " << to_do_list[i].get_qj() << "\n";
-
-            //obliczenie c_pi dla nastepnych zadan
-            c_pi.push_back(std::max(to_do_list[i].get_rj(), c_pi[i-1]) + to_do_list[i].get_pj());
-        }
-
-        //obliczenie cq_pi czyli czasu z ogonkiem
-        cq_pi.push_back(c_pi[i] + to_do_list[i].get_qj());
-
-        //pomiar "wirtualnego" czasu wykonywania zadania
-        time = cq_pi[i];
-
-        //std::cout << "c_pi(" << i+1 << ") = " << c_pi[i] << "\n";
-        //std::cout << "cq_pi(" << i+1 << ") = " << time << "\n";
-
-        //sprawdzenie czy jest mniejszy niz znaleziony dotychczas
-        //ten if ogolnie znajduje najmniejszy dotychczasowy wynikf
-        if (time > max_time) max_time=time;
+        // //obliczenie c_pi dla pierwszego zadania
+        // if (i==0) c_pi.push_back(to_do_list[i].get_rj() + to_do_list[i].get_pj());
+        // else
+        // {
+        //     //std::cout << "max(" << to_do_list[i].get_rj() << ", " << c_pi[i-1] << ") + "
+        //     //<< to_do_list[i].get_pj() << " + " << to_do_list[i].get_qj() << "\n";
+        //
+        //     //obliczenie c_pi dla nastepnych zadan
+        //     c_pi.push_back(std::max(to_do_list[i].get_rj(), c_pi[i-1]) + to_do_list[i].get_pj());
+        // }
+        //
+        // //obliczenie cq_pi czyli czasu z ogonkiem
+        // cq_pi.push_back(c_pi[i] + to_do_list[i].get_qj());
+        //
+        // //pomiar "wirtualnego" czasu wykonywania zadania
+        // time = cq_pi[i];
+        //
+        // //std::cout << "c_pi(" << i+1 << ") = " << c_pi[i] << "\n";
+        // //std::cout << "cq_pi(" << i+1 << ") = " << time << "\n";
+        //
+        // //sprawdzenie czy jest mniejszy niz znaleziony dotychczas
+        // //ten if ogolnie znajduje najmniejszy dotychczasowy wynikf
+        // if (time > max_time) max_time=time;
     }
     //std::cout << "MAX TIME: " << max_time<< "\n\n";
     return max_time;
