@@ -10,6 +10,10 @@
 #include <algorithm>
 
 
+Solution lsa_alg(Problem& p);
+Solution lsg_alg(Problem& p);
+
+
 
 
 #endif //ALGORITHMS_H
