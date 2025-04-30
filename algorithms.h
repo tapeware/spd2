@@ -11,7 +11,7 @@
 
 
 Solution lsa_alg(Problem& p);
-Solution lsg_alg(Problem& p);
+Solution lpt_alg(Problem& p);
 
 
 

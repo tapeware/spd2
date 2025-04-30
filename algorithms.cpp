@@ -53,7 +53,7 @@ Solution lsa_alg(Problem& p)
     return s;
 }
 
-Solution lsg_alg(Problem& p)
+Solution lpt_alg(Problem& p)
 {
     //std::vector<Task> tasks = p.get_tasks();
     std::vector<Task> tasks;
