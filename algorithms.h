@@ -8,8 +8,10 @@
 #include "Problem.h"
 #include "Solution.h"
 #include <algorithm>
+#include "utils.h"
+#include <cmath>
 
-
+unsigned int overview(const Problem& p);
 
 
 #endif //ALGORITHMS_H
