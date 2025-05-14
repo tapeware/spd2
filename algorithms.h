@@ -12,6 +12,8 @@
 #include <cmath>
 
 unsigned int overview(const Problem& p);
-
+Solution lsa_alg(Problem& p);
+Solution lpt_alg(Problem& p);
+Solution PDP2(Problem& p);
 
 #endif //ALGORITHMS_H

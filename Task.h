@@ -27,6 +27,7 @@ public:
     unsigned int get_id() const {return id;}
     unsigned int get_machine_id() const {return machine_id;}
     void set_id(unsigned int id) {this->id = id;}
+    void set_machine_id(unsigned int id) {this->machine_id = id;}
     void match_to_machine(unsigned int matched_machine_id) {machine_id = matched_machine_id;}
 };
 

@@ -16,11 +16,11 @@ int main()
     const std::string test_file_path = "../" + filename;
 
 
-    //generate_test_instance(5, 4, 50, 2, test_file_path);
+    generate_test_instance(5, 4, 50, 2, test_file_path);
 
 
 
-    Problem p(test_file_path);
+     Problem p(test_file_path);
 
     std::cout << p.simulate() << "\n";
 
@@ -41,6 +41,8 @@ int main()
 
     std::cout << time << " (time elapsed: " << t.get_measurement_with_unit() << ")\n";
     //std::cout << check_equivalence({0,0,0,0,0,0,0}, {1,1,1,1,1,1,1});
+
+    PDP2(p);
 
     return 0;
 }
