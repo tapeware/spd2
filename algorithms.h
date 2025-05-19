@@ -11,7 +11,15 @@
 #include "utils.h"
 #include <cmath>
 
+//wersja funkcji ktora zwraca tylko cmax
 unsigned int overview(const Problem& p);
+
+//wersja funkcji ktora zwraca tez najlepsze poukladanie a nie tylko cmax
+unsigned int overview(const Problem& p, based_number& best_matching);
+
+unsigned int ptas(const Problem& p, unsigned int k);
+
+
 
 
 #endif //ALGORITHMS_H

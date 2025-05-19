@@ -28,20 +28,18 @@ Problem::Problem(const std::string& file_path)
 std::ostream& operator<<(std::ostream& os, const Problem& p)
 {
     std::stringstream formatted_string;
-    //Task tmp;
+
     unsigned int task_count = p.get_task_count();
 
     formatted_string << "Task count: " << task_count << "\n";
     formatted_string << "Machine count: " << p.get_machine_count() << "\n";
-    // for (unsigned int i=0; i<task_count; i++)
-    // {
-    //     tmp = p.get_task_by_index(i);
-    //     formatted_string << i+1 << ") pj=" << tmp.get_pj()
-    //                             << ", rj=" << tmp.get_rj()
-    //                             << ", qj=" << tmp.get_qj()
-    //                             << "\n";
-    //
-    // }
+
+    Task tmp;
+    for (unsigned int i=0; i<task_count; i++)
+    {
+        tmp = p.get_task_by_index(i);
+        formatted_string << i+1 << ") pj=" << tmp.get_pj() << "\n";
+    }
 
     os << formatted_string.str();
     return os;
@@ -77,7 +75,7 @@ unsigned int Problem::simulate() const
 
 void Problem::match_to_machines(const based_number& matching)
 {
-    if (matching.size() != get_task_count()) return;
+    //if (matching.size() != get_task_count()) return;
 
     for (unsigned int index=0; index<get_task_count(); index++)
     {
@@ -87,3 +85,6 @@ void Problem::match_to_machines(const based_number& matching)
         //<< " to machine nr" << to_do_list[index].get_machine_id() << "!\n";
     }
 }
+
+
+

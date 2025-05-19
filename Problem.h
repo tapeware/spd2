@@ -21,7 +21,9 @@
 class Problem
 {
     std::vector<Task> to_do_list;
-    unsigned int num_of_machines;
+    unsigned int num_of_machines=2;
+
+    static bool task_comp(const Task& t1, const Task& t2) {return t1.get_pj() > t2.get_pj();}
 
 public:
     explicit Problem(const std::string& file_path);
@@ -38,6 +40,8 @@ public:
     void append_task(Task t) {to_do_list.push_back(t);}
     unsigned int simulate() const;
     void match_to_machines(const based_number& matching);
+
+    void pj_sort(){std::sort(to_do_list.begin(), to_do_list.end(), task_comp);}
 
 };
 
